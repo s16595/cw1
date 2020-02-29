@@ -10,9 +10,9 @@ namespace Cw1
         static async Task Main(string[] args)
         {
             var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync("http://pjwstk.edu.pl");
+            var response = await httpClient.GetAsync(args[0]);
 
-            Regex rx = new Regex("[A-Za-z\\d]+@[A-Za-z\\d]+\\.[A-Za-z\\d]+\\.[A-Za-z\\d]{2,}");
+            Regex rx = new Regex("[A-Za-z\\d]+@([A-Za-z\\d]+\\.)+[A-Za-z\\d]{2,}");
 
             if(response.StatusCode == System.Net.HttpStatusCode.OK)
             {
